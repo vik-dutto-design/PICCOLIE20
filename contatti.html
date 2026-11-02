@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contatti — Piccoli e20</title>
+    <meta name="description" content="Scrivi a Piccoli e20 su WhatsApp per prenotare o avere informazioni." />
+    <meta name="theme-color" content="#173326" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a120e'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23ffe14a'%3Ee20%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#contenuto">Vai al contenuto</a>
+    <header class="site-header">
+      <a class="logo" href="index.html">Piccoli <span>e20</span></a>
+      <nav class="nav" aria-label="Pagine">
+        <a href="index.html">Progetto</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="contatti.html" aria-current="page">Contatti</a>
+      </nav>
+    </header>
+
+    <main class="page contact-page" id="contenuto">
+      <section class="contact">
+        <div>
+          <p class="kicker">Contatti</p>
+          <h1>Dicci dove, quando e per quanti.</h1>
+          <p class="lead">Il messaggio si apre su WhatsApp, già scritto. Lo rileggete e lo inviate voi.</p>
+          <ul class="contact-meta">
+            <li>
+              <span>WhatsApp</span>
+              <a data-wa href="https://wa.me/393407774806">340 777 4806</a>
+            </li>
+            <li>
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/piccoli.e20/" target="_blank" rel="noopener noreferrer">@piccoli.e20</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="card" id="prenota">
+          <label>
+            Nome
+            <input name="nome" type="text" autocomplete="name" required placeholder="Come vi chiamate" />
+          </label>
+          <label>
+            Occasione
+            <select name="occasione">
+              <option value="una cena a domicilio">Cena a domicilio</option>
+              <option value="un brunch">Brunch</option>
+              <option value="un pranzo di festa">Pranzo di festa</option>
+              <option value="un compleanno">Compleanno</option>
+              <option value="un battesimo o un giorno speciale">Battesimo o giorno speciale</option>
+              <option value="avere più informazioni">Voglio solo più informazioni</option>
+            </select>
+          </label>
+          <div class="pair">
+            <label>
+              Data
+              <input name="data" type="date" />
+            </label>
+            <label>
+              Persone
+              <input name="persone" type="number" min="1" inputmode="numeric" placeholder="8" />
+            </label>
+          </div>
+          <label>
+            Note
+            <textarea name="messaggio" rows="4" placeholder="Allergie, posto, orario, quello che sapete già."></textarea>
+          </label>
+          <button class="btn btn-block" type="submit">Apri WhatsApp</button>
+          <p class="form-note">Niente viene inviato da solo.</p>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Piccoli e20</p>
+      <a data-wa href="https://wa.me/393407774806">WhatsApp</a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
