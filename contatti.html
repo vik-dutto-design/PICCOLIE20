@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contatti — Piccoli e20</title>
     <meta name="description" content="Scrivi a Piccoli e20 su WhatsApp per prenotare o avere informazioni." />
-    <meta name="theme-color" content="#173326" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a120e'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23ffe14a'%3Ee20%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#6e473b" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E473B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23C8372D'%3Ee20%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
-      <a class="logo" href="index.html">Piccoli <span>e20</span></a>
-      <nav class="nav" aria-label="Pagine">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Piccoli e20" width="300" height="38" /></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-pagine" aria-label="Apri il menu">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="menu-pagine" aria-label="Pagine">
         <a href="index.html">Progetto</a>
         <a href="chi-siamo.html">Chi siamo</a>
         <a href="contatti.html" aria-current="page">Contatti</a>
@@ -58,10 +61,16 @@
             </select>
           </label>
           <div class="pair">
-            <label>
-              Data
-              <input name="data" type="date" />
-            </label>
+            <div class="date-field">
+              <label>
+                Data
+                <input name="data" type="date" />
+              </label>
+              <label class="check">
+                <input name="data_incerta" type="checkbox" />
+                Non so ancora di preciso
+              </label>
+            </div>
             <label>
               Persone
               <input name="persone" type="number" min="1" inputmode="numeric" placeholder="8" />
