@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chi siamo — Piccoli e20</title>
     <meta name="description" content="Sara Giordano e Andrea, co-founder di Piccoli e20. Chef a domicilio." />
-    <meta name="theme-color" content="#f7f1e6" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a120e'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23ffe14a'%3Ee20%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#eadbc8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E473B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23C8372D'%3Ee20%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
-      <a class="logo" href="index.html">Piccoli <span>e20</span></a>
-      <nav class="nav" aria-label="Pagine">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Piccoli e20" width="300" height="38" /></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-pagine" aria-label="Apri il menu">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="menu-pagine" aria-label="Pagine">
         <a href="index.html">Progetto</a>
         <a href="chi-siamo.html" aria-current="page">Chi siamo</a>
         <a href="contatti.html">Contatti</a>
@@ -27,35 +30,37 @@
       <div class="people-top">
         <figure class="people-photo">
           <img
-            src="assets/festa.jpg"
-            alt="Sara e Andrea seduti sul cassone di un furgone verde, in giardino."
-            width="1600"
-            height="2133"
+            src="assets/PHOTO-2026-07-15-19-28-56.JPG"
+            alt="Sara e Andrea"
+            width="843"
+            height="1264"
           />
         </figure>
         <div class="people-copy">
           <p class="kicker">Chi siamo</p>
           <h1>Sara <em>e</em> Andrea.</h1>
-          <p class="lead">Due in cucina, una tavola sola. Piccoli e20 è l'experience a domicilio.</p>
+          <p class="lead">La cucina e la sala, il piatto e il racconto. Piccoli e20 porta il ristorante (quello vero) a casa vostra.</p>
           <div class="duo">
             <article>
-              <h2>Sara Giordano</h2>
+              <h2>Sara</h2>
               <p>
-                Co-founder. Executive Master in CEFF all’Università di Scienze Gastronomiche,
-                e adesso Natural Science. La tavola, i dettagli, il filo tra le cose.
+                Co-founder. Se la cucina è il regno di Andrea, il resto dell’universo di Piccoli e20 appartiene a Sara. Gestisce
+                la sala, la logistica, e i conti. Con una laurea in Relazioni Internazionali, un Master in Circular Economy for
+                Food e gli studi in corso in Scienze Naturali, unisce la precisione diplomatica alla cura sartoriale per i dettagli.
+                E grazie alle sue quattro lingue, trasforma ogni tavolo in uno spazio di casa, pronto ad accogliere e fare sentire
+                chiunque a proprio agio, da qualsiasi parte del mondo arrivi.
               </p>
             </article>
             <article>
               <h2>Andrea</h2>
               <p>
-                Co-founder. La cucina è la sua parte. Lo trovate anche al Ristorante Nazionale
-                di Vernante, con Uri Sapori Condivisi e al QB Bistro.
+                Co-founder. Con un passato nella cucina de <span class="who">“Il Ristorante Nazionale di Vernante”</span>,
+                Andrea ha una missione: fare una cucina seria, curata, ma che parli a chiunque, senza snobismi.
               </p>
             </article>
           </div>
         </div>
       </div>
-      <p class="sign">Made by Sara e Andrea.</p>
     </main>
 
     <footer class="site-footer">
