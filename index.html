@@ -8,18 +8,21 @@
       name="description"
       content="Piccoli e20 cucina a domicilio. Non serve un mega evento per fare una grande festa. In tavola con Camporelle."
     />
-    <meta name="theme-color" content="#f7f1e6" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a120e'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23ffe14a'%3Ee20%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#eadbc8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E473B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' font-family='Georgia' fill='%23C8372D'%3Ee20%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
-      <a class="logo" href="index.html">Piccoli <span>e20</span></a>
-      <nav class="nav" aria-label="Pagine">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Piccoli e20" width="300" height="38" /></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-pagine" aria-label="Apri il menu">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="menu-pagine" aria-label="Pagine">
         <a href="index.html" aria-current="page">Progetto</a>
         <a href="chi-siamo.html">Chi siamo</a>
         <a href="contatti.html">Contatti</a>
@@ -37,12 +40,12 @@
           Non è un <span class="nope">catering</span>. È un'<em>esperienza</em>.
         </p>
         <p>
-          Il menu è quello della <span class="who">stagione</span>. Un brunch, una cena, un giorno piccolo:
-          fatti in quella cucina, per <em>quella tavola</em>.
+          Niente menù fissi. Parla la <span class="who">stagione</span>. Brunch, cene a tema o cene a caso:
+          tu immagina, <em>noi cuciniamo</em>.
         </p>
         <p>
-          Si sceglie insieme cosa portare, si cucina <em>sul momento</em> e si resta fino alla fine.
-          Niente buffet già pronto, niente sala montata da altri.
+          Ci accordiamo sui piatti, <em>cuciniamo in diretta</em> nella vostra cucina e ci godiamo la festa con voi fino alla fine.
+          Zero buffet preconfezionati e zero schemi rigidi: solo il piacere di fare le cose <span class="who">insieme</span>.
         </p>
       </div>
       <a class="btn" href="contatti.html">Scrivici</a>
@@ -50,26 +53,29 @@
       <section class="collab" aria-label="Collaborazione con Camporelle">
         <div class="collab-layout">
           <div>
-            <p class="kicker">Con Camporelle, se lo volete</p>
+            <p class="kicker">UN TOCCO IN PIÙ</p>
             <h2>
               <span>Piccoli e20</span>
               <span class="x">in cucina</span>
               <span>Camporelle</span>
               <span class="x">per l'allestimento</span>
             </h2>
-            <p>Camporelle entra solo se lo chiedete. Altrimenti c’è solo lo chef a domicilio.</p>
+            <p>Il cuore del nostro servizio è la cucina a casa vostra. Ma se volete trasformare la tavola
+              in un’esperienza visiva indimenticabile, CAMPORELLE firma l’allestimento botanico e poetico della serata.</p>
             <a href="https://www.instagram.com/camporelle_/" target="_blank" rel="noopener noreferrer">@camporelle_</a>
           </div>
           <div class="paths">
             <article>
               <p class="tag">In due</p>
-              <h3>Pacchetto completo</h3>
-              <p>Piccoli e20 cucina. Camporelle crea l’allestimento, fiori del giardino compresi.</p>
+              <h3>Cucina & allestimento</h3>
+              <p>Noi pensiamo al menu e al servizio, CAMPORELLE veste la tavola con il suo stile: fiori freschi,
+                dettagli bohémienne e l’atmosfera giusta per farvi sognare.</p>
             </article>
             <article>
-              <p class="tag">Da soli</p>
-              <h3>Solo lo chef</h3>
-              <p>Si può avere soltanto lo chef a domicilio, senza allestimento.</p>
+              <p class="tag">Solo noi</p>
+              <h3>Cucina & tavola essenziale</h3>
+              <p>Pensiamo noi alla cucina e allestiamo una tavola semplice e curata. Piatti, bicchieri e zero orpelli:
+                solo la spontaneità dei nostri piatti a casa tua.</p>
             </article>
           </div>
         </div>
