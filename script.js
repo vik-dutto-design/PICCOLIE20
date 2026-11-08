@@ -7,7 +7,7 @@
   Tutti i link WhatsApp del sito leggono questa costante.
   ============================================================
 */
-const WHATSAPP_NUMBER = "393407774806";
+const WHATSAPP_NUMBER = "393808992995";
 
 (function () {
   const number = String(WHATSAPP_NUMBER || "").replace(/\D/g, "");
@@ -53,7 +53,7 @@ const WHATSAPP_NUMBER = "393407774806";
       if (event.key === "Escape") setMenu(false);
     });
     window.addEventListener("resize", () => {
-      if (window.matchMedia("(min-width: 720px)").matches) setMenu(false);
+      if (window.matchMedia("(min-width: 880px)").matches) setMenu(false);
     });
   }
 
