@@ -62,7 +62,8 @@ h1, h2, p { margin: 0; }
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 0.95rem 1.15rem;
+  min-height: 5.65rem;
+  padding: 0 1.15rem;
   position: sticky;
   top: 0;
   z-index: 5;
@@ -71,7 +72,8 @@ h1, h2, p { margin: 0; }
 .logo {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -285,13 +287,19 @@ h1 em {
 .collab h2 span {
   display: block;
 }
-.collab h2 .x {
+.collab h2 .x,
+.collab h2 .script {
   font-family: "Instrument Serif", Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 0.55em;
   letter-spacing: 0;
+}
+.collab h2 .x {
+  font-size: 0.55em;
   margin-top: 0.22em;
+}
+.collab h2 .script {
+  color: inherit;
 }
 .collab p {
   margin-top: 0.9rem;
@@ -564,6 +572,13 @@ body:has(.contact-page) {
   font-size: 0.9rem;
 }
 .site-footer a { font-weight: 700; color: var(--ink); }
+.site-footer .logo {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+.site-footer .logo img { height: 28px; }
 body { padding-bottom: calc(4.2rem + env(safe-area-inset-bottom)); }
 
 @media (max-width: 519px) {
@@ -602,9 +617,11 @@ body { padding-bottom: calc(4.2rem + env(safe-area-inset-bottom)); }
 @media (max-width: 719px) {
   .site-header {
     flex-wrap: nowrap;
-    padding: 0.7rem 0.9rem;
+    min-height: 4.5rem;
+    padding: 0 0.9rem;
   }
   .logo img { height: 26px; }
+  .site-footer .logo img { height: 24px; }
 }
 
 @media (max-width: 359px) {
