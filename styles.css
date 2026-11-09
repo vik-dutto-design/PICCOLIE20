@@ -448,6 +448,7 @@ body:has(.contact-page) {
   color: var(--beige);
   font-size: clamp(2.35rem, min(11.5vw, 17cqw), 5.6rem);
   max-width: 12ch;
+  line-height: 1.08;
 }
 .contact .lead { color: var(--beige); }
 .contact-meta {
@@ -621,11 +622,23 @@ body { padding-bottom: calc(4.2rem + env(safe-area-inset-bottom)); }
     padding: 0 0.9rem;
   }
   .logo img { height: 26px; }
-  .site-footer .logo img { height: 24px; }
+  .people-photo { margin-bottom: 0.7rem; }
+  .people-photo img { border-radius: 1.4rem; }
 }
 
 @media (max-width: 359px) {
   .logo img { height: 22px; }
+}
+
+@media (max-width: 879px) {
+  .site-footer .logo {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .site-footer .logo img {
+    width: 8.8ch;
+    height: auto;
+  }
 }
 
 @media (max-width: 1039px) {
@@ -748,10 +761,48 @@ html.intro .intro-screen {
   justify-content: center;
   background: var(--beige);
 }
+.intro-mark,
+.intro-cue {
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
 .intro-mark {
   width: 50vw;
   height: auto;
   max-width: none;
+}
+.intro-cue {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0 0.9rem;
+  color: var(--marrone);
+  pointer-events: none;
+}
+.intro-cue-text {
+  margin: 0;
+  font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.58rem, 2.15vw, 0.78rem);
+  letter-spacing: 0.11em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.intro-pot {
+  width: 1.7rem;
+  height: auto;
+  flex: none;
+}
+html.intro .intro-screen {
+  transition: opacity 0.45s ease;
+}
+html.intro .intro-screen.is-gone {
+  opacity: 0;
 }
 @media (max-width: 879px) {
   .intro-mark { width: 75vw; }
@@ -763,17 +814,14 @@ html.intro.intro-exit .site-footer {
   visibility: visible;
 }
 html.intro.intro-exit .intro-screen {
-  animation: veil-out 0.55s ease forwards;
   pointer-events: none;
-}
-@keyframes veil-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .nav-toggle-icon::before,
-  .nav-toggle-icon::after { transition: none; }
-  html.intro.intro-exit .intro-screen { animation: none; opacity: 0; }
+  .nav-toggle-icon::after,
+  .intro-mark,
+  .intro-cue,
+  html.intro .intro-screen { transition: none; }
 }
