@@ -721,8 +721,59 @@ body { padding-bottom: calc(4.2rem + env(safe-area-inset-bottom)); }
   }
 }
 
+.intro-screen {
+  display: none;
+}
+html.intro {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+}
+html.intro body {
+  overflow: hidden;
+  height: 100%;
+}
+html.intro .skip,
+html.intro .site-header,
+html.intro .page,
+html.intro .site-footer {
+  visibility: hidden;
+}
+html.intro .intro-screen {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  background: var(--beige);
+}
+.intro-mark {
+  width: 50vw;
+  height: auto;
+  max-width: none;
+}
+@media (max-width: 879px) {
+  .intro-mark { width: 75vw; }
+}
+html.intro.intro-exit .skip,
+html.intro.intro-exit .site-header,
+html.intro.intro-exit .page,
+html.intro.intro-exit .site-footer {
+  visibility: visible;
+}
+html.intro.intro-exit .intro-screen {
+  animation: veil-out 0.55s ease forwards;
+  pointer-events: none;
+}
+@keyframes veil-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .nav-toggle-icon::before,
   .nav-toggle-icon::after { transition: none; }
+  html.intro.intro-exit .intro-screen { animation: none; opacity: 0; }
 }
