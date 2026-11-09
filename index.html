@@ -9,13 +9,25 @@
       content="Piccoli e20 cucina a domicilio. Non serve un mega evento per fare una grande festa. In tavola con Camporelle."
     />
     <meta name="theme-color" content="#eadbc8" />
-    <link rel="icon" href="assets/favicon.svg" type="image/png" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem("piccoli-intro") === "done") return;
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          document.documentElement.classList.add("intro");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
+    <div class="intro-screen" aria-hidden="true">
+      <img class="intro-mark" src="assets/LogoPiccoliE20.svg" alt="" width="1472" height="187" />
+    </div>
     <a class="skip" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
       <a class="logo" href="index.html"><img src="assets/LogoPiccoliE20.svg" alt="Piccoli e20" width="1472" height="187" /></a>
