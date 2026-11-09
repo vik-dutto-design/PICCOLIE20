@@ -107,14 +107,46 @@ const WHATSAPP_NUMBER = "393808992995";
   let lastY = null;
 
   function range() {
-    return window.innerHeight || 1;
+    return 80;
   }
+
+  function wait(ms) {
+    return new Promise((resolve) => window.setTimeout(resolve, ms));
+  }
+
+  function fadeDone(el, ms) {
+    return new Promise((resolve) => {
+      let settled = false;
+      const done = () => {
+        if (settled) return;
+        settled = true;
+        el.removeEventListener("transitionend", onEnd);
+        resolve();
+      };
+      const onEnd = (event) => {
+        if (event.target === el) done();
+      };
+      el.addEventListener("transitionend", onEnd);
+      window.setTimeout(done, ms);
+    });
+  }
+
+  const cue = screen.querySelector(".intro-cue");
 
   function render() {
-    mark.style.opacity = String(1 - progress);
+    const opacity = String(1 - progress);
+    mark.style.opacity = opacity;
+    if (cue) cue.style.opacity = opacity;
   }
 
-  function finish() {
+  function revealPage() {
+    if (root.classList.contains("intro-reveal")) return;
+    root.classList.remove("intro", "intro-exit");
+    root.classList.add("intro-reveal");
+    window.scrollTo(0, 0);
+  }
+
+  async function finish() {
     if (finished) return;
     finished = true;
     try {
@@ -124,18 +156,16 @@ const WHATSAPP_NUMBER = "393808992995";
     window.removeEventListener("touchstart", onTouchStart);
     window.removeEventListener("touchmove", onTouchMove);
     window.removeEventListener("keydown", onKey);
+    mark.style.opacity = "0";
+    if (cue) cue.style.opacity = "0";
+    await fadeDone(mark, 760);
     covered.forEach((el) => {
       el.inert = false;
     });
-    const revealPage = () => {
-      if (root.classList.contains("intro-reveal")) return;
-      root.classList.remove("intro", "intro-exit");
-      root.classList.add("intro-reveal");
-      window.scrollTo(0, 0);
-    };
-    screen.addEventListener("animationend", revealPage, { once: true });
-    window.setTimeout(revealPage, 700);
     root.classList.add("intro-exit");
+    screen.classList.add("is-gone");
+    await fadeDone(screen, 500);
+    revealPage();
   }
 
   function addDelta(px) {
