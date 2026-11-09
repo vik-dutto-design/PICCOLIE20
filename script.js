@@ -90,3 +90,102 @@ const WHATSAPP_NUMBER = "393808992995";
     return match[3] + "/" + match[2] + "/" + match[1];
   }
 })();
+
+(function () {
+  const root = document.documentElement;
+  const screen = document.querySelector(".intro-screen");
+  const mark = screen && screen.querySelector(".intro-mark");
+  if (!screen || !mark || !root.classList.contains("intro")) return;
+
+  const covered = document.querySelectorAll(".skip, .site-header, .page, .site-footer");
+  covered.forEach((el) => {
+    el.inert = true;
+  });
+
+  let progress = 0;
+  let finished = false;
+  let lastY = null;
+
+  function range() {
+    return window.innerHeight || 1;
+  }
+
+  function render() {
+    mark.style.opacity = String(1 - progress);
+  }
+
+  function finish() {
+    if (finished) return;
+    finished = true;
+    try {
+      sessionStorage.setItem("piccoli-intro", "done");
+    } catch (e) {}
+    window.removeEventListener("wheel", onWheel);
+    window.removeEventListener("touchstart", onTouchStart);
+    window.removeEventListener("touchmove", onTouchMove);
+    window.removeEventListener("keydown", onKey);
+    covered.forEach((el) => {
+      el.inert = false;
+    });
+    const revealPage = () => {
+      if (root.classList.contains("intro-reveal")) return;
+      root.classList.remove("intro", "intro-exit");
+      root.classList.add("intro-reveal");
+      window.scrollTo(0, 0);
+    };
+    screen.addEventListener("animationend", revealPage, { once: true });
+    window.setTimeout(revealPage, 700);
+    root.classList.add("intro-exit");
+  }
+
+  function addDelta(px) {
+    if (finished) return;
+    progress = Math.min(1, Math.max(0, progress + px / range()));
+    render();
+    if (progress >= 1) finish();
+  }
+
+  function onWheel(event) {
+    if (finished) return;
+    event.preventDefault();
+    let dy = event.deltaY;
+    if (event.deltaMode === 1) dy *= 16;
+    if (event.deltaMode === 2) dy *= range();
+    addDelta(dy);
+  }
+
+  function onTouchStart(event) {
+    lastY = event.touches[0] ? event.touches[0].clientY : null;
+  }
+
+  function onTouchMove(event) {
+    if (finished || lastY == null || !event.touches[0]) return;
+    event.preventDefault();
+    const y = event.touches[0].clientY;
+    addDelta(lastY - y);
+    lastY = y;
+  }
+
+  function onKey(event) {
+    if (finished) return;
+    if (event.key === "ArrowDown" || event.key === " ") {
+      event.preventDefault();
+      addDelta(range() * 0.12);
+    } else if (event.key === "PageDown") {
+      event.preventDefault();
+      addDelta(range() * 0.85);
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      addDelta(range() * -0.12);
+    } else if (event.key === "PageUp") {
+      event.preventDefault();
+      addDelta(range() * -0.85);
+    }
+  }
+
+  window.addEventListener("wheel", onWheel, { passive: false });
+  window.addEventListener("touchstart", onTouchStart, { passive: true });
+  window.addEventListener("touchmove", onTouchMove, { passive: false });
+  window.addEventListener("keydown", onKey);
+  render();
+})();
